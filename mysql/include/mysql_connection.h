@@ -1,33 +1,39 @@
 /*
-Copyright (c) 2008, 2013, Oracle and/or its affiliates. All rights reserved.
-
-The MySQL Connector/C++ is licensed under the terms of the GPLv2
-<http://www.gnu.org/licenses/old-licenses/gpl-2.0.html>, like most
-MySQL Connectors. There are special exceptions to the terms and
-conditions of the GPLv2 as it is applied to this software, see the
-FLOSS License Exception
-<http://www.mysql.com/about/legal/licensing/foss-exception.html>.
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published
-by the Free Software Foundation; version 2 of the License.
-
-This program is distributed in the hope that it will be useful, but
-WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
-or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
-for more details.
-
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the Free Software Foundation, Inc.,
-51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA
-*/
+ * Copyright (c) 2008, 2018, Oracle and/or its affiliates. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License, version 2.0, as
+ * published by the Free Software Foundation.
+ *
+ * This program is also distributed with certain software (including
+ * but not limited to OpenSSL) that is licensed under separate terms,
+ * as designated in a particular file or component or in included license
+ * documentation.  The authors of MySQL hereby grant you an
+ * additional permission to link the program and your derivative works
+ * with the separately licensed software that they have included with
+ * MySQL.
+ *
+ * Without limiting anything contained in the foregoing, this file,
+ * which is part of MySQL Connector/C++, is also subject to the
+ * Universal FOSS Exception, version 1.0, a copy of which can be found at
+ * http://oss.oracle.com/licenses/universal-foss-exception.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License, version 2.0, for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA
+ */
 
 
 
 #ifndef _MYSQL_CONNECTION_H_
 #define _MYSQL_CONNECTION_H_
 
-#include <cppconn/connection.h>
+#include "cppconn/connection.h"
 #include <boost/shared_ptr.hpp>
 #include <boost/scoped_ptr.hpp>
 
@@ -38,20 +44,20 @@ namespace mysql
 
 class MySQL_Savepoint : public sql::Savepoint
 {
-	sql::SQLString name;
+  sql::SQLString name;
 
 public:
-	MySQL_Savepoint(const sql::SQLString &savepoint);
-	virtual ~MySQL_Savepoint() {}
+  MySQL_Savepoint(const sql::SQLString &savepoint);
+  virtual ~MySQL_Savepoint() {}
 
-	int getSavepointId();
+  int getSavepointId();
 
-	sql::SQLString getSavepointName();
+  sql::SQLString getSavepointName();
 
 private:
-	/* Prevent use of these */
-	MySQL_Savepoint(const MySQL_Savepoint &);
-	void operator=(MySQL_Savepoint &);
+  /* Prevent use of these */
+  MySQL_Savepoint(const MySQL_Savepoint &);
+  void operator=(MySQL_Savepoint &);
 };
 
 
@@ -66,113 +72,123 @@ class NativeConnectionWrapper;
 
 class CPPCONN_PUBLIC_FUNC MySQL_Connection : public sql::Connection
 {
-	MySQL_Statement * createServiceStmt();
+  MySQL_Statement * createServiceStmt();
 
 public:
-	MySQL_Connection(Driver * _driver,
-					::sql::mysql::NativeAPI::NativeConnectionWrapper & _proxy,
-					const sql::SQLString& hostName,
-					const sql::SQLString& userName,
-					const sql::SQLString& password);
+  MySQL_Connection(Driver * _driver,
+          ::sql::mysql::NativeAPI::NativeConnectionWrapper & _proxy,
+          const sql::SQLString& hostName,
+          const sql::SQLString& userName,
+          const sql::SQLString& password);
 
-	MySQL_Connection(Driver * _driver, ::sql::mysql::NativeAPI::NativeConnectionWrapper & _proxy,
-					std::map< sql::SQLString, sql::ConnectPropertyVal > & options);
+  MySQL_Connection(Driver * _driver, ::sql::mysql::NativeAPI::NativeConnectionWrapper & _proxy,
+          std::map< sql::SQLString, sql::ConnectPropertyVal > & options);
 
-	virtual ~MySQL_Connection();
+  virtual ~MySQL_Connection();
 
-	void clearWarnings();
+  void clearWarnings();
 
-	void close();
+  void close();
 
-	void commit();
+  void commit();
 
-	sql::Statement * createStatement();
+  sql::Statement * createStatement();
 
-	sql::SQLString escapeString(const sql::SQLString &);
+  sql::SQLString escapeString(const sql::SQLString &);
 
-	bool getAutoCommit();
+  bool getAutoCommit();
 
-	sql::SQLString getCatalog();
+  sql::SQLString getCatalog();
 
-	Driver *getDriver();
+  Driver *getDriver();
 
-	sql::SQLString getSchema();
+  sql::SQLString getSchema();
 
-	sql::SQLString getClientInfo();
+  sql::SQLString getClientInfo();
 
-	void getClientOption(const sql::SQLString & optionName, void * optionValue);
+  void getClientOption(const sql::SQLString & optionName, void * optionValue);
 
-	sql::DatabaseMetaData * getMetaData();
+  sql::SQLString getClientOption(const sql::SQLString & optionName);
 
-	enum_transaction_isolation getTransactionIsolation();
+  sql::DatabaseMetaData * getMetaData();
 
-	const SQLWarning * getWarnings();
+  enum_transaction_isolation getTransactionIsolation();
 
-	bool isClosed();
+  const SQLWarning * getWarnings();
 
-	bool isReadOnly();
+  bool isClosed();
 
-	sql::SQLString nativeSQL(const sql::SQLString& sql);
+  bool isReadOnly();
 
-	sql::PreparedStatement * prepareStatement(const sql::SQLString& sql);
+  bool isValid();
 
-	sql::PreparedStatement * prepareStatement(const sql::SQLString& sql, int autoGeneratedKeys);
+  bool reconnect();
 
-	sql::PreparedStatement * prepareStatement(const sql::SQLString& sql, int columnIndexes[]);
+  sql::SQLString nativeSQL(const sql::SQLString& sql);
 
-	sql::PreparedStatement * prepareStatement(const sql::SQLString& sql, int resultSetType, int resultSetConcurrency);
+  sql::PreparedStatement * prepareStatement(const sql::SQLString& sql);
 
-	sql::PreparedStatement * prepareStatement(const sql::SQLString& sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability);
+  sql::PreparedStatement * prepareStatement(const sql::SQLString& sql, int autoGeneratedKeys);
 
-	sql::PreparedStatement * prepareStatement(const sql::SQLString& sql, sql::SQLString columnNames[]);
+  sql::PreparedStatement * prepareStatement(const sql::SQLString& sql, int columnIndexes[]);
 
-	void releaseSavepoint(Savepoint * savepoint) ;
+  sql::PreparedStatement * prepareStatement(const sql::SQLString& sql, int resultSetType, int resultSetConcurrency);
 
-	void rollback();
+  sql::PreparedStatement * prepareStatement(const sql::SQLString& sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability);
 
-	void rollback(Savepoint * savepoint);
+  sql::PreparedStatement * prepareStatement(const sql::SQLString& sql, sql::SQLString columnNames[]);
 
-	void setAutoCommit(bool autoCommit);
+  void releaseSavepoint(Savepoint * savepoint) ;
 
-	void setCatalog(const sql::SQLString& catalog);
+  void rollback();
 
-	void setSchema(const sql::SQLString& catalog);
+  void rollback(Savepoint * savepoint);
 
-	sql::Connection * setClientOption(const sql::SQLString & optionName, const void * optionValue);
+  void setAutoCommit(bool autoCommit);
 
-	void setHoldability(int holdability);
+  void setCatalog(const sql::SQLString& catalog);
 
-	void setReadOnly(bool readOnly);
+  void setSchema(const sql::SQLString& catalog);
 
-	sql::Savepoint * setSavepoint();
+  sql::Connection * setClientOption(const sql::SQLString & optionName, const void * optionValue);
 
-	sql::Savepoint * setSavepoint(const sql::SQLString& name);
+  sql::Connection * setClientOption(const sql::SQLString & optionName, const sql::SQLString & optionValue);
 
-	void setTransactionIsolation(enum_transaction_isolation level);
+  void setHoldability(int holdability);
 
-	virtual sql::SQLString getSessionVariable(const sql::SQLString & varname);
+  void setReadOnly(bool readOnly);
 
-	virtual void setSessionVariable(const sql::SQLString & varname, const sql::SQLString & value);
+  sql::Savepoint * setSavepoint();
 
-	virtual sql::SQLString getLastStatementInfo();
+  sql::Savepoint * setSavepoint(const sql::SQLString& name);
+
+  void setTransactionIsolation(enum_transaction_isolation level);
+
+  virtual sql::SQLString getSessionVariable(const sql::SQLString & varname);
+
+  virtual void setSessionVariable(const sql::SQLString & varname, const sql::SQLString & value);
+
+  virtual void setSessionVariable(const sql::SQLString & varname, unsigned int value);
+
+  virtual sql::SQLString getLastStatementInfo();
 
 private:
-	/* We do not really think this class has to be subclassed*/
-	void checkClosed();
-	void init(std::map< sql::SQLString, sql::ConnectPropertyVal > & properties);
+  /* We do not really think this class has to be subclassed*/
+  void checkClosed();
+  void init(std::map< sql::SQLString, sql::ConnectPropertyVal > & properties);
 
-	Driver * driver;
-	boost::shared_ptr< NativeAPI::NativeConnectionWrapper > proxy;
+  Driver * driver;
+  boost::shared_ptr< NativeAPI::NativeConnectionWrapper > proxy;
 
-	/* statement handle to execute queries initiated by driver. Perhaps it is
-	   a good idea to move it to a separate helper class */
-	boost::scoped_ptr< ::sql::mysql::MySQL_Statement > service;
+  /* statement handle to execute queries initiated by driver. Perhaps it is
+     a good idea to move it to a separate helper class */
+  boost::scoped_ptr< ::sql::mysql::MySQL_Statement > service;
 
-	MySQL_ConnectionData * intern; /* pimpl */
+  boost::scoped_ptr< ::sql::mysql::MySQL_ConnectionData > intern; /* pimpl */
 
-	/* Prevent use of these */
-	MySQL_Connection(const MySQL_Connection &);
-	void operator=(MySQL_Connection &);
+  /* Prevent use of these */
+  MySQL_Connection(const MySQL_Connection &);
+  void operator=(MySQL_Connection &);
 };
 
 } /* namespace mysql */
