@@ -1,4 +1,1 @@
-2.0.8
-
-NOTE: 2.0.9 causes frame jumps for some players on Windows, see for example https://github.com/teeworlds/teeworlds/issues/1693
-Should be fixed in 2.0.10: https://hg.libsdl.org/SDL/rev/9091b20040cf
+2.0.10
