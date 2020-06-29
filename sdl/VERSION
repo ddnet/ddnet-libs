@@ -1,3 +1,3 @@
 2.0.8
 
-NOTE: 2.0.10 causes worse SDL_PollEvent performance: https://bugzilla.libsdl.org/show_bug.cgi?id=4897
+NOTE: 2.0.12 causes mouse to disappear when switching from editor to desktop, see https://bugzilla.libsdl.org/show_bug.cgi?id=5218
