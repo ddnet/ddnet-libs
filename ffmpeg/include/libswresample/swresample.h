@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (C) 2011-2013 Michael Niedermayer (michaelni@gmx.at)
  *
  * This file is part of libswresample

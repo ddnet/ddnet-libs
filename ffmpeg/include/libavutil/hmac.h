@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (C) 2012 Martin Storsjo
  *
  * This file is part of FFmpeg.
@@ -23,7 +23,6 @@
 
 #include <stdint.h>
 
-#include "version.h"
 /**
  * @defgroup lavu_hmac HMAC
  * @ingroup lavu_crypto

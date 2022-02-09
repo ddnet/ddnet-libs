@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2014 Vittorio Giovara <vittorio.giovara@gmail.com>
  *
  * This file is part of FFmpeg.
@@ -88,7 +88,7 @@
 double av_display_rotation_get(const int32_t matrix[9]);
 
 /**
- * Initialize a transformation matrix describing a pure counterclockwise
+ * Initialize a transformation matrix describing a pure clockwise
  * rotation by the specified angle (in degrees).
  *
  * @param matrix an allocated transformation matrix (will be fully overwritten

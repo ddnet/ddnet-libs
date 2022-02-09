@@ -1,4 +1,4 @@
-﻿/*
+/*
  * copyright (c) 2007 Michael Niedermayer <michaelni@gmx.at>
  *
  * This file is part of FFmpeg.
@@ -24,7 +24,6 @@
 #include <stdint.h>
 
 #include "attributes.h"
-#include "version.h"
 
 /**
  * @defgroup lavu_aes AES

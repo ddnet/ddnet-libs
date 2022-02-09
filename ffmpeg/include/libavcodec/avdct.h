@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of FFmpeg.
  *
  * FFmpeg is free software; you can redistribute it and/or
@@ -67,6 +67,10 @@ typedef struct AVDCT {
                        ptrdiff_t line_size);
 
     int bits_per_sample;
+
+    void (*get_pixels_unaligned)(int16_t *block /* align 16 */,
+                       const uint8_t *pixels,
+                       ptrdiff_t line_size);
 } AVDCT;
 
 /**

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * copyright (c) 2006 Michael Niedermayer <michaelni@gmx.at>
  *
  * This file is part of FFmpeg.
@@ -32,6 +32,12 @@
 #else
 #    define AV_GCC_VERSION_AT_LEAST(x,y) 0
 #    define AV_GCC_VERSION_AT_MOST(x,y)  0
+#endif
+
+#ifdef __has_builtin
+#    define AV_HAS_BUILTIN(x) __has_builtin(x)
+#else
+#    define AV_HAS_BUILTIN(x) 0
 #endif
 
 #ifndef av_always_inline

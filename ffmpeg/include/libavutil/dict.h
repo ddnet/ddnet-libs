@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of FFmpeg.
  *
  * FFmpeg is free software; you can redistribute it and/or
@@ -31,8 +31,6 @@
 #define AVUTIL_DICT_H
 
 #include <stdint.h>
-
-#include "version.h"
 
 /**
  * @addtogroup lavu_dict AVDictionary

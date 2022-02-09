@@ -70,14 +70,27 @@ typedef struct lws_mqtt_client_connect_param_s {
 	uint16_t 			keep_alive;	/* MQTT keep alive
 							   interval in
 							   seconds */
-	uint8_t 			clean_start;	/* MQTT clean
+	uint8_t 			clean_start:1;	/* MQTT clean
 							   session */
+	uint8_t				client_id_nofree:1;
+	/**< do not free the client id */
+	uint8_t				username_nofree:1;
+	/**< do not free the username */
+	uint8_t				password_nofree:1;
+	/**< do not free the password */
 	struct {
 		const char 		*topic;
 		const char 		*message;
 		lws_mqtt_qos_levels_t	qos;
 		uint8_t 		retain;
 	} will_param;				/* MQTT LWT
+						   parameters */
+	struct {
+		const char 		*topic;
+		const char 		*message;
+		lws_mqtt_qos_levels_t	qos;
+		uint8_t 		retain;
+	} birth_param;				/* MQTT Birth
 						   parameters */
 	const char 			*username;
 	const char 			*password;
@@ -143,6 +156,10 @@ typedef enum {
 
 /* flags from byte 8 of C_TO_S CONNECT */
 typedef enum {
+	LMQCFT_USERNAME_NOFREE					= (1 << 10),
+	LMQCFT_PASSWORD_NOFREE					= (1 << 9),
+	LMQCFT_CLIENT_ID_NOFREE					= (1 << 8),
+	/* only the low 8 are standardized and go out in the protocol */
 	LMQCFT_USERNAME						= (1 << 7),
 	LMQCFT_PASSWORD						= (1 << 6),
 	LMQCFT_WILL_RETAIN					= (1 << 5),

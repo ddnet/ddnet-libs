@@ -878,8 +878,13 @@ enum lws_callback_reasons {
 	 * close the wsi.
 	 */
 	LWS_CALLBACK_MQTT_RESEND				= 210,
-	/**< In QoS1, this callback is generated instead of the _ACK one if
-	 * we timed out waiting for a PUBACK and we must resend the message.
+	/**< In QoS1 or QoS2, this callback is generated instead of the _ACK one
+	 * if we timed out waiting for a PUBACK or a PUBREC, and we must resend
+	 * the message.  Return nonzero to close the wsi.
+	 */
+	LWS_CALLBACK_MQTT_UNSUBSCRIBE_TIMEOUT			= 211,
+	/**< When a UNSUBSCRIBE is sent, this callback is generated instead of
+	 * the _UNSUBSCRIBED one if we timed out waiting for a UNSUBACK.
 	 * Return nonzero to close the wsi.
 	 */
 

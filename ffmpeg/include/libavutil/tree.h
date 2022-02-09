@@ -1,4 +1,4 @@
-﻿/*
+/*
  * copyright (c) 2006 Michael Niedermayer <michaelni@gmx.at>
  *
  * This file is part of FFmpeg.
@@ -28,7 +28,6 @@
 #define AVUTIL_TREE_H
 
 #include "attributes.h"
-#include "version.h"
 
 /**
  * @addtogroup lavu_tree AVTree

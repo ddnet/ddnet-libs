@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of FFmpeg.
  *
  * FFmpeg is free software; you can redistribute it and/or
@@ -26,6 +26,8 @@
 
 #include <errno.h>
 #include <stddef.h>
+
+#include "macros.h"
 
 /**
  * @addtogroup lavu_error

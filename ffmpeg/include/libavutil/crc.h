@@ -1,4 +1,4 @@
-﻿/*
+/*
  * copyright (c) 2006 Michael Niedermayer <michaelni@gmx.at>
  *
  * This file is part of FFmpeg.
@@ -30,7 +30,6 @@
 #include <stdint.h>
 #include <stddef.h>
 #include "attributes.h"
-#include "version.h"
 
 /**
  * @defgroup lavu_crc32 CRC

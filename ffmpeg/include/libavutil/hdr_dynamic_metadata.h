@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2018 Mohammad Izadi <moh.izadi at gmail.com>
  *
  * This file is part of FFmpeg.
