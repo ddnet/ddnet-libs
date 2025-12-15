@@ -1,6 +1,6 @@
 /*
   Simple DirectMedia Layer
-  Copyright (C) 1997-2024 Sam Lantinga <slouken@libsdl.org>
+  Copyright (C) 1997-2025 Sam Lantinga <slouken@libsdl.org>
 
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages
@@ -330,7 +330,7 @@ extern DECLSPEC void SDLCALL SDL_UnlockSurface(SDL_Surface * surface);
  * result in a memory leak.
  *
  * src is an open SDL_RWops buffer, typically loaded with SDL_RWFromFile.
- * Alternitavely, you might also use the macro SDL_LoadBMP to load a bitmap
+ * Alternatively, you might also use the macro SDL_LoadBMP to load a bitmap
  * from a file, convert it to an SDL_Surface and then close the file.
  *
  * \param src the data stream for the surface.
@@ -808,8 +808,8 @@ extern DECLSPEC int SDLCALL SDL_FillRects
  *
  * This assumes that the source and destination rectangles are the same size.
  * If either `srcrect` or `dstrect` are NULL, the entire surface (`src` or
- * `dst`) is copied. The final blit rectangles are saved in `srcrect` and
- * `dstrect` after all clipping is performed.
+ * `dst`) is copied. The final blit rectangle is saved in `dstrect` after
+ * all clipping is performed.
  *
  * The blit function should not be called on a locked surface.
  *

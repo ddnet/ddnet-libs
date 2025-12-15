@@ -1,6 +1,6 @@
 /*
   Simple DirectMedia Layer
-  Copyright (C) 1997-2024 Sam Lantinga <slouken@libsdl.org>
+  Copyright (C) 1997-2025 Sam Lantinga <slouken@libsdl.org>
 
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages
@@ -624,7 +624,7 @@ typedef struct SDL_HapticCondition
     /* Header */
     Uint16 type;            /**< SDL_HAPTIC_SPRING, SDL_HAPTIC_DAMPER,
                                  SDL_HAPTIC_INERTIA or SDL_HAPTIC_FRICTION */
-    SDL_HapticDirection direction;  /**< Direction of the effect - Not used ATM. */
+    SDL_HapticDirection direction;  /**< Direction of the effect. */
 
     /* Replay */
     Uint32 length;          /**< Duration of the effect. */

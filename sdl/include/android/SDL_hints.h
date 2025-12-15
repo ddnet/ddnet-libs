@@ -1,6 +1,6 @@
 /*
   Simple DirectMedia Layer
-  Copyright (C) 1997-2024 Sam Lantinga <slouken@libsdl.org>
+  Copyright (C) 1997-2025 Sam Lantinga <slouken@libsdl.org>
 
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages
@@ -1423,6 +1423,27 @@ extern "C" {
  */
 #define SDL_HINT_JOYSTICK_DEVICE "SDL_JOYSTICK_DEVICE"
 
+
+/**
+ * A variable containing a list of devices and their desired number of haptic
+ * (force feedback) enabled axis.
+ *
+ * The format of the string is a comma separated list of USB VID/PID pairs in
+ * hexadecimal form plus the number of desired axes, e.g.
+ *
+ * `0xAAAA/0xBBBB/1,0xCCCC/0xDDDD/3`
+ *
+ * This hint supports a "wildcard" device that will set the number of haptic
+ * axes on all initialized haptic devices which were not defined explicitly in
+ * this hint.
+ *
+ * `0xFFFF/0xFFFF/1`
+ *
+ * This hint should be set before a controller is opened. The number of haptic
+ * axes won't exceed the number of real axes found on the device.
+ */
+#define SDL_HINT_JOYSTICK_HAPTIC_AXES "SDL_JOYSTICK_HAPTIC_AXES"
+
 /**
  * A variable controlling whether joysticks on Linux will always treat 'hat'
  * axis inputs (ABS_HAT0X - ABS_HAT3Y) as 8-way digital hats without checking
@@ -2283,7 +2304,7 @@ extern "C" {
 
 /**
  * A variable controlling whether the libdecor Wayland backend is preferred
- * over native decrations.
+ * over native decorations.
  *
  * When this hint is set, libdecor will be used to provide window decorations,
  * even if xdg-decoration is available. (Note that, by default, libdecor will
@@ -2606,7 +2627,7 @@ extern "C" {
  * Force SDL to use Critical Sections for mutexes on Windows.
  *
  * On Windows 7 and newer, Slim Reader/Writer Locks are available. They offer
- * better performance, allocate no kernel ressources and use less memory. SDL
+ * better performance, allocate no kernel resources and use less memory. SDL
  * will fall back to Critical Sections on older OS versions or if forced to by
  * this hint.
  *

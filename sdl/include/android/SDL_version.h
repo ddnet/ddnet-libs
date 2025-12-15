@@ -1,6 +1,6 @@
 /*
   Simple DirectMedia Layer
-  Copyright (C) 1997-2024 Sam Lantinga <slouken@libsdl.org>
+  Copyright (C) 1997-2025 Sam Lantinga <slouken@libsdl.org>
 
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages
@@ -57,8 +57,8 @@ typedef struct SDL_version
 /* Printable format: "%d.%d.%d", MAJOR, MINOR, PATCHLEVEL
 */
 #define SDL_MAJOR_VERSION   2
-#define SDL_MINOR_VERSION   31
-#define SDL_PATCHLEVEL      0
+#define SDL_MINOR_VERSION   32
+#define SDL_PATCHLEVEL      10
 
 /**
  * Macro to determine SDL version program was compiled against.

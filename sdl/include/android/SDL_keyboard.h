@@ -1,6 +1,6 @@
 /*
   Simple DirectMedia Layer
-  Copyright (C) 1997-2024 Sam Lantinga <slouken@libsdl.org>
+  Copyright (C) 1997-2025 Sam Lantinga <slouken@libsdl.org>
 
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages
@@ -49,7 +49,7 @@ typedef struct SDL_Keysym
 {
     SDL_Scancode scancode;      /**< SDL physical key code - see SDL_Scancode for details */
     SDL_Keycode sym;            /**< SDL virtual key code - see SDL_Keycode for details */
-    Uint16 mod;                 /**< current key modifiers */
+    Uint16 mod;                 /**< current key modifiers - see SDL_Keymod for details */
     Uint32 unused;
 } SDL_Keysym;
 
@@ -255,7 +255,7 @@ extern DECLSPEC SDL_Keycode SDLCALL SDL_GetKeyFromName(const char *name);
  * On some platforms using this function activates the screen keyboard.
  *
  * On desktop platforms, SDL_StartTextInput() is implicitly called on SDL
- * window creation which will cause events SDL_TextInputEvent and
+ * video subsystem initialization which will cause SDL_TextInputEvent and
  * SDL_TextEditingEvent to begin emitting.
  *
  * \since This function is available since SDL 2.0.0.

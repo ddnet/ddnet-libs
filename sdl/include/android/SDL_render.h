@@ -1,6 +1,6 @@
 /*
   Simple DirectMedia Layer
-  Copyright (C) 1997-2024 Sam Lantinga <slouken@libsdl.org>
+  Copyright (C) 1997-2025 Sam Lantinga <slouken@libsdl.org>
 
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages
@@ -244,7 +244,7 @@ extern DECLSPEC SDL_Renderer * SDLCALL SDL_CreateRenderer(SDL_Window * window,
  * \since This function is available since SDL 2.0.0.
  *
  * \sa SDL_CreateRenderer
- * \sa SDL_CreateWindowRenderer
+ * \sa SDL_CreateWindowAndRenderer
  * \sa SDL_DestroyRenderer
  */
 extern DECLSPEC SDL_Renderer * SDLCALL SDL_CreateSoftwareRenderer(SDL_Surface * surface);
@@ -787,7 +787,7 @@ extern DECLSPEC int SDLCALL SDL_SetRenderTarget(SDL_Renderer *renderer,
  * Get the current render target.
  *
  * The default render target is the window for which the renderer was created,
- * and is reported a NULL here.
+ * and is reported as NULL here.
  *
  * \param renderer the rendering context.
  * \returns the current render target or NULL for the default render target.
