@@ -1,1 +1,4 @@
-1.3.216.0 from https://vulkan.lunarg.com/sdk/home
+Headers: v1.4.357 from https://github.com/KhronosGroup/Vulkan-Headers
+         Only C headers are kept.
+Loader:  windows/lib64 from SDK 1.3.216.0, windows/libarm64 from
+         VulkanRT 1.3.290.0, both https://vulkan.lunarg.com/sdk/home
