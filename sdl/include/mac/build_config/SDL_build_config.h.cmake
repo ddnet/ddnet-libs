@@ -92,6 +92,9 @@
 #cmakedefine HAVE_WCSCMP 1
 #cmakedefine HAVE_WCSNCMP 1
 #cmakedefine HAVE_WCSTOL 1
+#cmakedefine HAVE_WCSTOLL 1
+#cmakedefine HAVE_WCSTOUL 1
+#cmakedefine HAVE_WCSTOULL 1
 #cmakedefine HAVE_STRLEN 1
 #cmakedefine HAVE_STRNLEN 1
 #cmakedefine HAVE_STRLCPY 1
@@ -228,6 +231,7 @@
 #cmakedefine HAVE_XINPUT_H 1
 #cmakedefine HAVE_WINDOWS_GAMING_INPUT_H 1
 #cmakedefine HAVE_GAMEINPUT_H 1
+#cmakedefine SDL_GAMEINPUT_DYNAMIC 1
 #cmakedefine HAVE_DXGI_H 1
 #cmakedefine HAVE_DXGI1_5_H 1
 #cmakedefine HAVE_DXGI1_6_H 1
@@ -291,7 +295,7 @@
 #cmakedefine SDL_AUDIO_DRIVER_N3DS 1
 #cmakedefine SDL_AUDIO_DRIVER_NGAGE 1
 #cmakedefine SDL_AUDIO_DRIVER_QNX 1
-
+#cmakedefine SDL_AUDIO_DRIVER_DOS_SOUNDBLASTER 1
 #cmakedefine SDL_AUDIO_DRIVER_PRIVATE 1
 
 /* Enable various input drivers */
@@ -302,6 +306,7 @@
 #cmakedefine SDL_HAVE_MACHINE_JOYSTICK_H 1
 #cmakedefine SDL_JOYSTICK_ANDROID 1
 #cmakedefine SDL_JOYSTICK_DINPUT 1
+#cmakedefine SDL_JOYSTICK_DOS 1
 #cmakedefine SDL_JOYSTICK_DUMMY 1
 #cmakedefine SDL_JOYSTICK_EMSCRIPTEN 1
 #cmakedefine SDL_JOYSTICK_GAMEINPUT 1
@@ -369,6 +374,7 @@
 #cmakedefine SDL_THREAD_PSP 1
 #cmakedefine SDL_THREAD_PS2 1
 #cmakedefine SDL_THREAD_N3DS 1
+#cmakedefine SDL_THREAD_DOS 1
 
 #cmakedefine SDL_THREAD_PRIVATE 1
 
@@ -377,9 +383,9 @@
 #cmakedefine SDL_TIME_WINDOWS 1
 #cmakedefine SDL_TIME_VITA 1
 #cmakedefine SDL_TIME_PSP 1
-#cmakedefine SDL_TIME_PS2 1
 #cmakedefine SDL_TIME_N3DS 1
 #cmakedefine SDL_TIME_NGAGE 1
+#cmakedefine SDL_TIME_DUMMY 1
 
 #cmakedefine SDL_TIME_PRIVATE 1
 
@@ -391,6 +397,7 @@
 #cmakedefine SDL_TIMER_PSP 1
 #cmakedefine SDL_TIMER_PS2 1
 #cmakedefine SDL_TIMER_N3DS 1
+#cmakedefine SDL_TIMER_DOS 1
 
 #cmakedefine SDL_TIMER_PRIVATE 1
 
@@ -447,6 +454,7 @@
 #cmakedefine SDL_VIDEO_DRIVER_X11_XSYNC 1
 #cmakedefine SDL_VIDEO_DRIVER_X11_XTEST 1
 #cmakedefine SDL_VIDEO_DRIVER_QNX 1
+#cmakedefine SDL_VIDEO_DRIVER_DOSVESA 1
 
 #cmakedefine SDL_VIDEO_DRIVER_PRIVATE 1
 
@@ -457,6 +465,7 @@
 #cmakedefine SDL_VIDEO_RENDER_METAL 1
 #cmakedefine SDL_VIDEO_RENDER_VULKAN 1
 #cmakedefine SDL_VIDEO_RENDER_OGL 1
+#cmakedefine SDL_VIDEO_RENDER_OGL_ES 1
 #cmakedefine SDL_VIDEO_RENDER_OGL_ES2 1
 #cmakedefine SDL_VIDEO_RENDER_NGAGE 1
 #cmakedefine SDL_VIDEO_RENDER_PS2 1
@@ -487,6 +496,7 @@
 #cmakedefine SDL_GPU_D3D12 1
 #cmakedefine SDL_GPU_VULKAN 1
 #cmakedefine SDL_GPU_METAL 1
+#cmakedefine HAVE_GPU_OPENXR 1
 
 #cmakedefine SDL_GPU_PRIVATE 1
 
@@ -518,6 +528,7 @@
 #cmakedefine SDL_FILESYSTEM_PSP 1
 #cmakedefine SDL_FILESYSTEM_PS2 1
 #cmakedefine SDL_FILESYSTEM_N3DS 1
+#cmakedefine SDL_FILESYSTEM_DOS 1
 
 #cmakedefine SDL_FILESYSTEM_PRIVATE 1
 
@@ -618,6 +629,7 @@ typedef unsigned int uintptr_t;
 #cmakedefine SDL_DISABLE_LSX 1
 #cmakedefine SDL_DISABLE_LASX 1
 #cmakedefine SDL_DISABLE_NEON 1
+#cmakedefine SDL_DISABLE_SVE2 1
 
 #ifdef SDL_PLATFORM_PRIVATE
 #include "SDL_end_config_private.h"
